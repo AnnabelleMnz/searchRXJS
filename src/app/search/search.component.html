@@ -1,0 +1,11 @@
+<div>
+    <h1>Search</h1>
+    <input type="text" #searchTerm (input)="searchByTerm(searchTerm.value)">
+</div>
+<!-- Cette partie de l'expression utilise des directives Angular pour gérer l'affichage conditionnel et extraire des données à partir d'un flux observable (products$). -->
+<div class="product" *ngIf="products$ | async as products" >
+    <div *ngFor="let product of products">
+        <h3>{{product.title}}</h3>
+        <img class="thumbnail" [alt]="product.title" [src]="product.thumbnail">
+    </div>
+</div>
